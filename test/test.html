@@ -1,0 +1,52 @@
+<form onsubmit="generateQRCode(); return false;">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+    
+    <label for="college">College:</label>
+    <input type="text" id="college" name="college" required><br><br>
+    
+    <label for="course">Course:</label>
+    <input type="text" id="course" name="course" required><br><br>
+    
+    <label for="year">Year level:</label>
+    <select id="year" name="year" required>
+      <option value="">Select year level</option>
+      <option value="1">First year</option>
+      <option value="2">Second year</option>
+      <option value="3">Third year</option>
+      <option value="4">Fourth year</option>
+    </select><br><br>
+    
+    <input type="submit" value="Generate QR Code">
+  </form>
+  
+  <qr-code
+  id="qr1"
+  module-color="#black"
+  position-ring-color="#black"
+  position-center-color="#black"
+  mask-x-to-y-ratio="1.2"
+  style="
+    width: 400px;
+    height: 400px;
+    margin: 2em auto;
+    background-color: #ffffff;
+  "
+>
+<img src="birb.svg" slot="icon" width="90" height="60">
+
+</qr-code>
+  
+  <script src="https://unpkg.com/@bitjson/qr-code@1.0.2/dist/qr-code.js"></script>
+  <script>
+    function generateQRCode() {
+      var name = document.getElementById("name").value;
+      var college = document.getElementById("college").value;
+      var course = document.getElementById("course").value;
+      var year = document.getElementById("year").value;
+      var data = name + ", " + college + ", " + course + ", " + year;
+      document.getElementById("qr1").setAttribute("contents", data);
+      document.getElementById('qr1').animateQRCode('MaterializeIn');
+    }
+  </script>
+  

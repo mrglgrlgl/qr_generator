@@ -1,0 +1,28 @@
+
+
+<script src="https://unpkg.com/@bitjson/qr-code@1.0.2/dist/qr-code.js"></script>
+
+<qr-code contents="481c891bf9019d8b47592d62134ac1d19d0d562d745b29829179998a27d1f2dd"></qr-code>
+<qr-code
+  id="qr1"
+  contents="https://bitjson.com/"
+  module-color="#1c7d43"
+  position-ring-color="#13532d"
+  position-center-color="#70c559"
+  mask-x-to-y-ratio="1.2"
+  style="
+    width: 200px;
+    height: 200px;
+    margin: 2em auto;
+    background-color: #fff;
+  "
+>
+  <img src="birb.sng" slot="icon" />
+</qr-code>
+
+<script>
+  document.getElementById('qr1').addEventListener('codeRendered', () => {
+    document.getElementById('qr1').animateQRCode('MaterializeIn');
+  });
+</script>
+
